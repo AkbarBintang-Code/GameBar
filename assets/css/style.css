@@ -1,0 +1,1392 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Delicious+Handrawn&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Orbitron:wght@400;700&display=swap");
+
+/* Config Color css */
+:root {
+  --primaryColor: #fffbe6;       /* Warna kuning utama (Kenya Foam) */
+  --backgroundColor: #ffffff;    /* Warna retro oranye tua */
+  --textColor: #000000;          /* Warna teks utama */
+  --activeColor: #f0e7b8;        /* Kuning muda saat aktif */
+  --shadowColor: #000000;        /* Bayangan hitam */
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(145, 145, 145);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #fffbe6;
+  border-radius: 5px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  background-color: var(--backgroundColor);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* === DARK MODE STYLES === */
+.dark-mode {
+  --primaryColor: #1c1c1c;
+  --backgroundColor: #121212;
+  --textColor1: #f5f5f5;
+  --activeColor: #2c2c2c;
+  --shadowColor: #000000;
+}
+
+.dark-mode .hero .content h1{
+  color: var(--textColor1);
+}
+
+.dark-mode body {
+  background-color: var(--backgroundColor);
+  color: var(--textColor1);
+}
+
+.dark-mode .navbar,
+.dark-mode .retro-section,
+.dark-mode .pixel-section,
+.dark-mode .bit-contact,
+.dark-mode footer,
+.dark-mode .pixel-card,
+.dark-mode .bit-form,
+.dark-mode .retro-box,
+.dark-mode .keunggulan-list li {
+  background-color: var(--primaryColor);
+  color: var(--textColor1);
+}
+
+.dark-mode .navbar-logo,
+.dark-mode .nav__link,
+.dark-mode .retro-title,
+.dark-mode .retro-subtitle,
+.dark-mode .retro-sub,
+.dark-mode .pixel-title,
+.dark-mode .pixel-subtitle,
+.dark-mode .bit-title,
+.dark-mode .bit-subtitle,
+.dark-mode .modal-content h1,
+.dark-mode .modal-content p {
+  color: var(--textColor1);
+}
+
+.dark-mode .dark-toggle {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--textColor1);
+  cursor: pointer;
+}
+
+.dark-toggle {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: inherit;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+
+/* Navbar style */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primaryColor);
+  padding: 1rem 2rem;
+  border-bottom: 5px solid var(--shadowColor);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 6px 0 var(--shadowColor);
+}
+
+.navbar-logo {
+  font-family: "Press Start 2P", cursive;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--textColor);
+  background: var(--backgroundColor);
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  box-shadow: 2px 3px 0 var(--shadowColor);
+  text-decoration: none;
+}
+
+.navbar-logo:hover {
+  color: rgb(255, 145, 0);
+  transform: translateY(-2px);
+  box-shadow: 4px 6px 0 var(--shadowColor);
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.navbar-nav a {
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+  text-decoration: none;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-weight: bold;
+  box-shadow: 3px 5px 0 var(--shadowColor);
+  transition: all 0.2s ease;
+}
+
+.navbar-nav a:hover {
+  transform: translateY(2px); /* turun, bukan naik */
+  box-shadow: 1px 1px 0 var(--shadowColor); /* lebih kecil, seperti ditekan */
+}
+
+.nav__link.active-link {
+  background-color: var(--activeColor);
+  transform: translateY(2px); /* tetap ditekan */
+  box-shadow: 1px 1px 0 var(--shadowColor); /* bayangan kecil, kesan tertekan */
+}
+
+
+#hamburger {
+  display: none;
+}
+
+/* hero */
+.hero {
+  min-height: 110vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../img/ps.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0));
+  mask-image: linear-gradient(rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0));
+}
+
+.hero .mask-container {
+  position: absolute;
+  inset: 0;
+  -webkit-mask-image: url("../img/ps.jpg");
+  -webkit-mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-image: url("../img/ps.jpg");
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  mask-position: center;
+}
+
+.hero .content {
+  padding: 2rem 7%;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  margin-top: 80px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero .content h1 {
+  font-family: 'Fredoka One', sans-serif;
+  font-weight: 900;
+  color: var(--primaryColor);
+  text-shadow: 5px 5px 0 #000000;
+  font-size: 4.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  padding-top: 10rem;
+}
+
+.hero .content h1 span {
+  color: black;
+  background-color: var(--primaryColor);
+  padding: 0 0.5rem;
+  border-radius: 8px;
+  text-shadow: 2px 2px 0 #ffffff;
+}
+
+.hero .content p {
+  font-family: "Delicious Handrawn", cursive;
+  color: var(--textColor, #000000);
+  font-size: 2.2rem;
+  padding: 1.5rem 2rem;
+  background-color: var(--backgroundColor);
+  border-radius: 12px;
+  display: inline-block;
+  font-weight: bold;
+  box-shadow: 5px 5px 0 #000000;
+  margin-top: 7rem;
+}
+
+.hero .content .cta {
+  margin-top: 6rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.4rem;
+  color: #000000;
+  background-color:#fffbe6;
+  border-radius: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 4px 4px 0 #000000;
+  transition: transform 0.2s ease;
+}
+
+.hero .content .cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 0 #000000;
+}
+
+/* Animasi retro sederhana */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Retro-style section base */
+.about,
+.menu,
+.products,
+.contact {
+  min-height: 100vh;
+  padding: 6rem 7% 1.4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Retro title style */
+.about h2,
+.menu h2,
+.products h2,
+.contact h2 {
+  padding-top: 1.5rem;
+  color: #000;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  text-shadow: 3px 3px 0 #ffffff, 6px 6px 0 #ff5733;
+}
+
+/* Retro paragraph style */
+.about p,
+.contact p {
+  font-family: 'Comic Relief', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #000000;
+}
+
+/* Menu heading tambahan */
+.menu h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2rem;
+  text-align: center;
+  margin: 2rem 0;
+  color: #000;
+  text-shadow: 3px 3px 0 #fff, 5px 5px 0 #FF5733;
+}
+
+/* Section span style */
+.about h2 span,
+.menu h2 span,
+.contact h2 span {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+/* Konten About */
+.retro-section {
+  /* background-image: url("../img/bgcolor.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0));
+  mask-image: linear-gradient(rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0)); */
+  padding: 6rem 2rem;
+  font-family: 'Press Start 2P', cursive;
+  color: #111;
+  border-top: 5px solid #000;
+  border-bottom: 5px solid #000;
+}
+
+.retro-title {
+  font-size: 4rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px #000;
+  margin-bottom: 2rem;
+}
+
+  .retro-title1{
+    margin-top: 2.5rem;
+    padding-bottom: 1rem;
+  }
+
+   .retro-sub1 {
+  padding-top: 1.5rem;
+  color: #000;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-size: 1.5rem;
+  padding-bottom: 2rem;
+  text-shadow: 3px 3px 0 #ffffff, 6px 6px 0 #ff5733;
+}
+
+.retro-sub1 span{
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem;
+  color: #ff0000;
+}
+
+.blink {
+  animation: blink 1s steps(2, start) infinite;
+  color: red;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.retro-box {
+  background: #fffbe6;
+  border: 4px solid #111;
+  box-shadow: 4px 4px 0 #000;
+  padding: 2rem;
+  max-width: 700px;
+  margin: auto;
+  border-radius: 8px;
+}
+
+.retro-sub {
+  font-size: 2rem;
+  color: #111;
+  margin-bottom: 1.5rem;
+}
+
+.retro-sub span{
+  font-size: 2rem;
+  color: #ffb700;
+  margin-bottom: 1.5rem;
+}
+
+.retro-box p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Retro Menu New */
+.retro-section {
+  min-height: 100vh;
+  background-color: var(--backgroundColor);
+  padding: 4rem 2rem;
+  font-family: 'Press Start 2P', cursive;
+  color: #111;
+  text-align: center;
+}
+
+.retro-title {
+  font-size: 4rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px #000;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+}
+
+.retro-subtitle {
+  font-family: 'Comic Relief', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: #000000;
+  line-height: 1.6;
+}
+
+.retro-subtitle span{
+  font-family: 'Comic Relief', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: #ff0000;
+  line-height: 1.6;
+}
+
+.retro-sub {
+  padding-top: 1.5rem;
+  color: #000;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  text-shadow: 3px 3px 0 #ffffff, 5px 5px 0 #ff5733;
+}
+
+.retro-sub span{
+  font-size: 1.3rem;
+  margin: 2rem 0 1rem;
+  color: #ff0000;
+}
+
+.keunggulan-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 500px;
+  text-align: left;
+}
+
+.keunggulan-list li {
+  background-color: #fffbe6;
+  border: 3px solid #111;
+  box-shadow: 4px 4px 0 #000;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.keunggulan-list li:hover {
+  font-weight: bolder;
+  color: #000000;
+  transform: translateY(-5px);
+}
+
+/* Menu Section Style */
+.contact h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+.contact p {
+  font-family: "Comic Relief", sans-serif;
+  text-align: center;
+  max-width: 30rem;
+  margin: auto;
+  font-weight: 100;
+  line-height: 1.6;
+  font-size: larger;
+}
+
+/* product style */
+.pixel-section {
+  min-height: 100vh;
+  background-color: var(--backgroundColor);
+  padding: 4rem 2rem;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  border-top: 5px solid #000;
+  border-bottom: 5px solid #000;
+}
+
+.pixel-title {
+  margin-top: 3rem;
+  color: #000;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  text-shadow: 3px 3px 0 #ffffff, 6px 6px 0 #ff5733;
+}
+
+.pixel-title span{
+  color: #ff0000;
+}
+
+.pixel-subtitle {
+  font-family: 'Comic Relief', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: #000000;
+}
+
+.pixel-subtitle span{
+  color: #ff0000;
+}
+
+.pixel-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pixel-card {
+  background-color: #fffbe6;
+  border: 3px solid #111;
+  box-shadow: 4px 4px 0 #000;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+  width: 20%;
+  font-family: 'Press Start 2P', cursive;
+  color: #111;
+  transition: transform 0.2s ease;
+}
+
+.pixel-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0 #000;
+}
+
+.pixel-image img {
+  width: 100%;
+  border: 3px solid #111;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.pixel-content h3 {
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.pixel-stars {
+  font-size: 1rem;
+  color: gold;
+}
+
+.pixel-icon {
+  margin-bottom: 0.5rem;
+}
+
+.pixel-icon a {
+  color: #111;
+  font-size: 1.2rem;
+  margin: 0 0.4rem;
+  text-decoration: none;
+}
+
+.pixel-icon a:hover {
+  color: red;
+}
+
+@keyframes blink {
+  to { visibility: hidden; }
+}
+
+.pixel-price{
+  font-size: 0.9rem;
+}
+
+/* Kontak Section */
+.bit-contact {
+  /* background-image: url("../img/bgcolor.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0));
+  mask-image: linear-gradient(rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0)); */
+  padding: 4rem 2rem;
+  font-family: 'Press Start 2P', cursive;
+  color: #111;
+  text-align: center;
+  border-top: 5px solid var(--shadowColor);
+  border-bottom: 5px solid var(--shadowColor);
+}
+
+.bit-title {
+  margin-top: 3rem;
+  color: #000;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  text-shadow: 3px 3px 0 #ffffff, 6px 6px 0 #ff5733;
+}
+
+.bit-title span{
+  color: #ff0000;
+}
+
+.bit-subtitle {
+  font-family: 'Comic Relief', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: #000000;
+  line-height: 1.6;
+}
+
+.bit-subtitle span{
+  font-family: 'Comic Relief', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: #ff0000;
+  line-height: 1.6;
+}
+
+.bit-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.bit-map {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  border: 3px solid #111;
+  box-shadow: 4px 4px 0 #000;
+  border-radius: 8px;
+}
+
+.bit-form {
+  width: 100%;
+  max-width: 500px;
+  background-color: #fffbe6;
+  border: 3px solid #111;
+  box-shadow: 4px 4px 0 #000;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.bit-input-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.bit-input-group i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #111;
+}
+
+.bit-input-group input {
+  width: 100%;
+  padding: 0.8rem 0.8rem 0.8rem 2.5rem;
+  border: 2px solid #111;
+  border-radius: 6px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+}
+
+.bit-btn-submit {
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+  text-decoration: none;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-weight: bold;
+  box-shadow: 3px 5px 0 var(--shadowColor);
+  transition: all 0.2s ease;
+  font-size: 0.8rem;
+  font-family: 'Press Start 2P', cursive;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bit-btn-submit:hover {
+  transform: translateY(2px); /* turun, bukan naik */
+  box-shadow: 1px 1px 0 var(--shadowColor); /* lebih kecil, seperti ditekan */
+}
+
+
+@keyframes blink {
+  to { visibility: hidden; }
+}
+
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+.keunggulan-section {
+  padding: 2rem 1rem;
+  background: #fefefe;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.keunggulan-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.keunggulan-list li {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.1rem;
+  margin: 0.75rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: transform 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+.keunggulan-list li:hover {
+  font-family: 'Press Start 2P', cursive;
+  color: #000000;
+  transform: translateY(-5px);
+}
+
+/* Footer style */
+footer {
+  background-color: #fffbe6;
+  padding: 1rem 7%;
+  text-align: center;
+  color: #FFF;
+  font-size: 1rem; /* Mengurangi ukuran font */
+  border-top: 5px solid var(--shadowColor);
+}
+
+footer .socials a {
+  color: #000000;
+  font-size: 1.5rem; /* Ukuran ikon sedikit lebih kecil */
+  margin: 0 1rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+footer .socials a:hover {
+  transform: scale(1.1);
+  color: #F2C94C;
+}
+
+footer .links a {
+  color: #000000;
+  font-size: 1rem; /* Ukuran font lebih kecil */
+  margin: 0 1rem;
+  text-decoration: none;
+  letter-spacing: 0.5px; /* Spasi antar huruf sedikit lebih rapat */
+  transition: color 0.3s ease;
+}
+
+footer .links a:hover {
+  transform: scale(1.1);
+  color: #F2C94C;
+}
+
+footer .credit p {
+  color: #000000;
+  font-size: 0.9rem; /* Font lebih kecil */
+  margin-top: 1rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+footer .credit p span{
+  color: #000000;
+  font-size: 1rem; /* Font lebih kecil */
+  margin-top: 1rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+footer .credit p span:hover{
+  color: #ff0000;
+  font-size: 2rem;
+  margin-top: 1rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+footer .socials, footer .links {
+  margin-bottom: 1rem;
+}
+
+footer .socials {
+  display: flex;
+  justify-content: center;
+}
+
+footer .links {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* modal box style */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-container {
+  position: relative;
+  background-color: #fefefe;
+  color: var(--backgroundColor);
+  margin: 15% auto;
+  padding: 1.2rem;
+  border: 1px solid #555;
+  width: 80%;
+  animation: slideBottom 0.5s ease forwards;
+  border-radius: 20px;
+}
+
+/* animation */
+@keyframes slideBottom {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.modal-container .close {
+  position: absolute;
+  right: 1rem;
+  font-size: 1.5rem;
+}
+
+.modal-content {
+  color: #000;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.modal-content img {
+  align-items: center;
+  height: 15rem;
+  margin-top: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.modal-content h1 {
+  font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+  color: #000000;
+}
+
+.modal-content p {
+  font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  margin-top: 1.2rem;
+  color: #000000;
+}
+
+.modal-content a {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  gap: 1rem;
+  width: 12rem;
+  background-color: #2fff00;
+  color: #000000;
+  margin-top: 1rem;
+  padding: 1rem 1.6rem;
+  border-radius: 20px;
+}
+
+.modal-content a:hover {
+  background-color: #177e00;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #f1f1f1;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem; /* lebih kecil */
+  margin-bottom: 0.75rem; /* lebih rapat */
+  transition: all 0.3s ease;
+}
+
+.input-group i {
+  font-size: 1rem; /* lebih kecil */
+  margin-right: 0.5rem; /* jarak lebih dekat */
+  color: #888;
+}
+
+.input-group input,
+.input-group textarea {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 0.9rem; /* sedikit lebih kecil */
+  color: #333;
+  outline: none;
+  resize: none;
+  padding: 0.5rem; /* rapat di dalam */
+}
+
+/* Hover + Focus State */
+.input-group:focus-within {
+  border: 1px solid #4CAF50;
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+/* Responsive textarea */
+.input-group textarea {
+  min-height: 80px; /* lebih kecil */
+  line-height: 1.2;
+}
+/* Media Query */
+
+/* Laptop / PC */
+@media screen and (max-width: 1366px) {
+  html {
+    font-size: 80%;
+  }
+}
+
+
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .products {
+    padding: 4rem 1rem;
+    justify-content: center;
+  }
+
+  .products h2{
+    padding-top: 5rem;
+  }
+
+  .products .product-card {
+    width: 100%; /* Mengurangi lebar produk untuk perangkat kecil */
+    max-width: 60%; /* Membatasi lebar maksimum produk */
+    margin-bottom: 1rem; /* Memberi ruang antar produk */
+    margin-left: 14rem;
+  }
+
+  .product-image img {
+    height: 200px; /* Menyesuaikan tinggi gambar untuk tampilan lebih kecil */
+  }
+
+  .product-content h3 {
+    font-size: 1.5rem; /* Mengurangi ukuran teks untuk mobile */
+  }
+
+  .products-icon {
+    padding: 0.8rem; /* Mengurangi padding untuk lebih kompak */
+  }
+
+  .products-icon a {
+    font-size: 1.4rem; /* Mengurangi ukuran ikon agar tidak terlalu besar */
+  }
+
+  .product-stars i {
+    font-size: 1.2rem; /* Menyesuaikan ukuran bintang */
+  }
+
+  html {
+    font-size: 63%;
+  }
+  #hamburger {
+    font-size: 3rem;
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    flex-direction: column;
+    top: 100%;
+    right: -100%;
+    background-color: #fff;
+    width: 30rem;
+    height: 100vh;
+    transition: 0.4s;
+  }
+
+  .navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000000;
+  }
+  .navbar-logo:hover {
+  color: rgb(255, 230, 0);
+  transform: translateY(-2px);
+  box-shadow: 4px 6px 0 var(--shadowColor);
+}
+  
+  .navbar .navbar-logo span {
+    color: var(--primaryColor);
+  }
+
+  .navbar .navbar-nav a {
+    color: var(--backgroundColor);
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+    color: #000000;
+  }
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.3);
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+  .navbar .search-form {
+    width: 90%;
+    right: 2rem;
+  }
+
+  .about .row {
+    flex-wrap: wrap;
+  }
+  .about .row .about-img img {
+    height: 24rem;
+    object-fit: cover;
+    object-position: center;
+  }
+  .about .row .content {
+    padding: 0;
+  }
+  .about .row .content h3 {
+    margin-top: 1rem;
+    font-size: 2rem;
+  }
+  .about .row .content p {
+    font-size: 1.5rem;
+  }
+  .menu p {
+    padding-top: 1.6rem;
+    font-size: 1.3rem;
+  }
+
+  .retro-subtitle {
+  font-family: 'Comic Relief', sans-serif;
+  font-size: 5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: #000000;
+  line-height: 1.6;
+}
+
+.retro-sub {
+  font-size: 2rem;
+}
+
+.retro-sub span{
+  font-size: 2rem;
+}
+
+  .pixel-title {
+  margin-top: 4.5rem;
+  color: #000;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  text-shadow: 3px 3px 0 #ffffff, 6px 6px 0 #ff5733;
+}
+
+  .pixel-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.pixel-card {
+  background-color: #fffbe6;
+  border: 3px solid #111;
+  box-shadow: 4px 4px 0 #000;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+  width: 45%;
+  font-family: 'Press Start 2P', cursive;
+  color: #111;
+  transition: transform 0.2s ease;
+}
+
+.pixel-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.pixel-content .pixel-price{
+  font-size: 1rem;
+}
+
+.pixel-icon {
+  margin-bottom: 0.5rem;
+}
+
+.pixel-icon a {
+  color: #111;
+  font-size: 2rem;
+  margin: 0 0.4rem;
+  text-decoration: none;
+}
+
+.pixel-stars {
+  font-size: 1.5rem;
+  color: gold;
+}
+
+.pixel-icon a:hover {
+  color: red;
+}
+
+.bit-subtitle{
+  font-size: 1.7rem;
+}
+
+.bit-title {
+  margin-top: 4.5rem;
+  color: #000;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  text-shadow: 3px 3px 0 #ffffff, 6px 6px 0 #ff5733;
+}
+
+  .bit-form {
+  width: 100%;
+  max-width: 500px;
+  background-color: #fffbe6;
+  border: 3px solid #111;
+  box-shadow: 4px 4px 0 #000;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.bit-input-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.bit-input-group i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #111;
+}
+
+.bit-input-group input {
+  width: 100%;
+  padding: 0.8rem 0.8rem 0.8rem 2.5rem;
+  border: 2px solid #111;
+  border-radius: 6px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+}
+
+.bit-btn-submit {
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+  text-decoration: none;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-weight: bold;
+  box-shadow: 3px 5px 0 var(--shadowColor);
+  transition: all 0.2s ease;
+  font-size: 0.8rem;
+  font-family: 'Press Start 2P', cursive;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bit-btn-submit:hover {
+  transform: translateY(2px); /* turun, bukan naik */
+  box-shadow: 1px 1px 0 var(--shadowColor); /* lebih kecil, seperti ditekan */
+}
+  .modal img{
+    width: 150px;
+    height: 150px;
+    margin-left: 22rem;
+  }
+  .modal h1{
+    margin-left: 6rem;
+  }
+  .modal p{
+    margin-left: 6rem;
+  }
+  .modal-content {
+    flex-wrap: wrap;
+  }
+}
+
+/* Smartphone */
+
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 55%;
+  }
+
+  .hero p {
+    font-size: 3rem;
+  }
+
+  .retro-title1{
+    margin-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+ .retro-sub1 {
+  padding-top: 1.5rem;
+  color: #000;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-size: 4rem;
+  padding-bottom: 2rem;
+  text-shadow: 3px 3px 0 #ffffff, 6px 6px 0 #ff5733;
+}
+
+.retro-sub1 span{
+  font-size: 2rem;
+  margin: 2rem 0 1rem;
+  color: #ff0000;
+}
+
+.retro-title{
+  margin-top: 3rem;
+}
+
+.retro-subtitle span{
+  font-size: 1.7rem;
+}
+
+.pixel-subtitle{
+  font-size: 1.7rem;
+}
+  
+  .about .row .content h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .about .row .content p {
+    margin-bottom: 0.8rem;
+    font-size: 1.5rem;
+    font-weight: 100;
+    line-height: 1.6;
+  }
+
+  .about h2 {
+    font-size: 3rem;
+  }
+
+  .about p {
+    font-size: 3rem;
+  }
+
+  .menu p {
+    padding-top: 1rem;
+    font-size: 1.7rem;
+    padding-bottom: 3rem;
+  }
+
+  .menu h2{
+    font-size: 3rem;
+    padding-bottom: 1rem;
+  }
+
+  .menu h1 {
+    font-size: 3rem;
+  }
+
+  .menu li {
+    padding-top: 1.5rem;
+    font-size: 1.7rem;
+  }
+
+
+  .products .product-card {
+    width: 55%; /* Mengurangi lebar produk untuk perangkat kecil */
+    max-width: 50%; /* Membatasi lebar maksimum produk */
+    margin-bottom: 1rem; /* Memberi ruang antar produk */
+  }
+
+  .product-image img {
+    height: 200px; /* Menyesuaikan tinggi gambar untuk tampilan lebih kecil */
+  }
+
+  .product-content h3 {
+    font-size: 1.5rem; /* Mengurangi ukuran teks untuk mobile */
+  }
+
+  .products-icon {
+    padding: 0.8rem; /* Mengurangi padding untuk lebih kompak */
+  }
+
+  .products-icon a {
+    font-size: 1.4rem; /* Mengurangi ukuran ikon agar tidak terlalu besar */
+  }
+
+  .product-stars i {
+    font-size: 1.2rem; /* Menyesuaikan ukuran bintang */
+  }
+
+  .contact h2 {
+    font-size: 3rem;
+  }
+
+  .contact p {
+    padding-top: 3rem;
+    font-size: 1.7rem;
+  }
+  .modal img{
+    width: 150px;
+    height: 150px;
+    margin-left: 22rem;
+  }
+  .modal h1{
+    margin-left: 6rem;
+  }
+  .modal p{
+    margin-left: 6rem;
+  }
+  .modal-content {
+    flex-wrap: wrap;
+  }
+}

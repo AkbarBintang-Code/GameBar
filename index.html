@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--=============== FAVICON ===============-->
+    <link rel="shortcut icon" href="assets/img/joystick.png" type="image/x-icon" />
+    <!-- Boxicons cdn -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <!-- CSS MANUAL -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- Alpine js cdn -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>Game-Bar.</title>
+  </head>
+  <body x-data="{ dark: false }" :class="{ 'dark-mode': dark }">
+  <!-- Navbar -->
+  <nav class="navbar" x-data="{ menuOpen: false, active: 'home' }">
+    <a href="#top" class="navbar-logo">Game-Bar.</a>
+
+    <div class="navbar-nav">
+      <a href="#home" class="nav__link">Home</a>
+      <a href="#about" class="nav__link">About us</a>
+      <a href="#menu" class="nav__link">Info</a>
+      <a href="#products" class="nav__link">Produk</a>
+      <a href="#contact" class="nav__link">Contact Us</a>
+    </div>      
+
+    <!-- Toggle Dark Mode -->
+    <button @click="dark = !dark" class="dark-toggle">
+      <i class="bx" :class="dark ? 'bx-sun' : 'bx-moon'"></i>
+    </button>
+
+    <a id="hamburger" @click="menuOpen = !menuOpen">
+      <i class="bx bx-menu"></i>
+    </a>
+  </nav>
+
+    
+    <!-- Navbar Last-->
+
+    <!-- Hero Section Start -->
+    <section class="hero" id="home">
+      <div class="mask-container">
+        <main class="content">
+          <h1>Bukan Sekadar <span>Konsol.</span> Ini <span>Mesin Waktu.</span></h1>
+          <!-- <p class="paragrap">Game-Bar Surabaya membawa kamu kembali ke era emas gaming. Dari PlayStation jadul sampai game retro 
+            yang legendaris — rasakan nostalgia seru, beli dan jual koleksi terbaikmu, 
+            dan hidupkan kembali masa-masa keemasan di tempat ngumpulnya para gamer sejati.
+          </p> -->
+              
+          <a href="#products" class="cta">▸ Press Start to Nostalgia.</a>
+        </main>
+      </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- About Section Start -->
+<section class="about retro-section" id="about">
+  <h2 class="retro-title1">Tentang <span class="blink">Kami</span></h2>
+
+  <div class="row">
+    <div class="content retro-box">
+      <h3 class="retro-sub1">Kenapa harus di <span>Game-Bar?</span></h3>
+      <p>
+        ▸ Karena di Game-Bar, keseruan dimulai dari konsol yang tepat — makanya kami pilih PlayStation dan game legendaris yang siap bawa kamu balik ke masa stik kabel dan loading screen penuh harapan.
+      </p>
+      <p>
+        ▸ Buat kami, main game itu bukan cuma hiburan — tapi bagian dari masa kecil, persahabatan, dan memori seru yang layak diulang. Dari Surabaya, untuk kamu yang rindu vibes 90-an dan 2000-an.
+      </p>
+    </div>
+  </div>
+</section>
+  
+    <!-- About Section End -->
+
+    <!-- Menu Section Start -->
+<section class="menu retro-section" id="menu">
+  <h2 class="retro-title">Nostalgia akan terasa <span>Menyenangkan!</span></h2>
+  <p class="retro-subtitle">
+    Game-Bar bukan cuma tempat jual beli <span>konsol</span>, tapi <span>markasnya</span> para <span>gamer yang rindu</span> sensasi <span>loading screen</span>, <span>stik kabel</span>, dan <span>suara disk yang muter</span>. 
+    Dari <span>Surabaya</span>, kami siap jadi <span>solusi utama</span> buat kamu yang nyari <span>PlayStation dan game keren</span> — baik buat <span>koleksi pribadi</span>, <span>rental</span>, 
+    atau <span>nostalgia</span> bareng <span>temen lama</span>.
+  </p>
+  
+  <h3 class="retro-sub">Apa saja Yang Bisa Kamu Dapatkan <span class="highlight">Disini?</span></h3>
+
+  <ul class="keunggulan-list">
+    <li>🕹️ Produk Berkelas</li>
+<li>💰 Harga Grosir Kompetitif</li>
+<li>📦 Stok Selalu Tersedia</li>
+<li>⚡ Layanan Cepat dan Ramah</li>
+  </ul>
+</section>
+    <!-- Menu Section End -->
+
+    <!-- Product section Start -->
+<section class="pixel-section" id="products" x-data="products">
+  <h2 class="pixel-title">Produk <span>Unggulan</span> Kami</h2>
+  <p class="pixel-subtitle">
+    Karena <span>kenangan itu berharga</span>, dan <span>setiap game punya cerita</span>.
+Di sini, kami nggak cuma jual console — kami menghadirkan kembali <span>potongan kenangan </span>masa kecil, masa sekolah, 
+dan masa-masa sederhana yang penuh tawa. Dari suara <span>loading PlayStation 1</span>, <span>dentingan kaset SEGA</span>, sampai
+<span>getaran khas stik PS2</span>  — semuanya kami hadirkan agar kamu bisa <span>bernostalgia</span> dengan cara <span>paling menyenangkan</span>.
+  </p>
+  <p class="pixel-subtitle">
+    Berikut beberapa produk <span>CONSOLE/SYSTEM</span> unggulan kami : <br> (Klik icon detail untuk mengetahui harganya <span>karena setiap ITEM berbeda</span>)
+  </p>
+  <div class="pixel-row">
+    <template x-for="(item, index) in itemsConsole" x-key="index">
+      <div class="pixel-card">
+        <div class="pixel-icon">
+          <a href="#" @click.prevent="$store.product.openModal(item)">
+            <i class="bx bx-detail"></i>
+          </a>
+          <a :href="`https://wa.me/+6281331061873?text=Halo%20Game-Bar,%20saya%20ingin%20beli%20produk%20${encodeURIComponent(item.name)},%20dengan%20harga%20${encodeURIComponent(rupiah(item.price))}.%20Apakah%20masih%20tersedia?`" target="_blank">
+            <i class="bx bxl-whatsapp"></i>
+          </a>
+        </div>
+        <div class="pixel-image">
+          <img :src="`assets/img/${item.img}`" :alt="item.name" />
+        </div>
+        <div class="pixel-content">
+          <h3 x-text="item.name"></h3>
+          <div class="pixel-stars">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bx-star"></i>
+          </div>
+        </div>
+        <br>
+        <div class="pixel-price" x-text="rupiah($store.product.detail?.price)"></div>
+      </div>
+    </template>
+  </div>
+  <br>
+  <br>
+  <br>
+  <p class="pixel-subtitle">
+    Berikut beberapa produk <span>GAME</span> unggulan kami: <br> (Klik icon detail untuk mengetahui harganya <span>karena setiap ITEM berbeda</span>)
+  </p>
+  <div class="pixel-row">
+    <template x-for="(item, index) in itemsGame" x-key="index">
+      <div class="pixel-card">
+        <div class="pixel-icon">
+          <a href="#" @click.prevent="$store.product.openModal(item)">
+            <i class="bx bx-detail"></i>
+          </a>
+          <a :href="`https://wa.me/+6281331061873?text=Halo%20Game-Bar,%20saya%20ingin%20beli%20produk%20${encodeURIComponent(item.name)},%20dengan%20harga%20${encodeURIComponent(rupiah(item.price))}.%20Apakah%20masih%20tersedia?`" target="_blank">
+            <i class="bx bxl-whatsapp"></i>
+          </a>
+        </div>
+        <div class="pixel-image">
+          <img :src="`assets/img/${item.img}`" :alt="item.name" />
+        </div>
+        <div class="pixel-content">
+          <h3 x-text="item.name"></h3>
+          <div class="pixel-stars">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bx-star"></i>
+          </div>
+        </div>
+        <br>
+        <div class="pixel-price" x-text="rupiah($store.product.detail?.price)"></div>
+      </div>
+    </template>
+  </div>
+</section>
+    <!-- Product section End -->
+     
+    <!-- Contact Section Start -->
+<section class="bit-contact" id="contact">
+  <h2 class="bit-title">Kontak <span>Kami</span></h2>
+  <p class="bit-subtitle">
+    Punya pertanyaan soal console, mau tanya stok game favorit masa kecil, atau sekadar berbagi kenangan seru waktu main bareng teman dulu?
+    Kami siap dengerin kamu!
+    Hubungi kami kapan saja — karena setiap pesan dari kamu berarti banyak bagi kami..
+  </p>
+
+  <div class="bit-row">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1399.292444658183!2d112.72904247194111!3d-7.263962189881861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7f959ecb4138d%3A0x7b20f0702d11d914!2sJl.%20Kedung%20Anyar%20I%2C%20Surabaya%2C%20Jawa%20Timur%2060251!5e0!3m2!1sid!2sid!4v1746347081326!5m2!1sid!2sid"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      class="bit-map"
+    ></iframe>
+
+    <form action="https://formspree.io/f/xanevrev" method="POST" class="bit-form">
+      <div class="bit-input-group">
+        <i class="bx bxs-user"></i>
+        <input type="text" name="name" placeholder="Nama" required autocomplete="off"/>
+      </div>
+      <div class="bit-input-group">
+        <i class="bx bx-envelope"></i>
+        <input type="email" name="email" placeholder="Email" required autocomplete="off"/>
+      </div>
+      <div class="bit-input-group">
+        <i class="bx bx-message"></i>
+        <input type="text" name="message" placeholder="Pesan" required autocomplete="off"/>
+      </div>
+      <button type="submit" class="bit-btn-submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+    <!-- Contact Section End -->
+
+    <!-- Footer -->
+    <footer>
+      <div class="socials">
+        <a href="#"><i class="bx bxl-instagram"></i></a>
+        <a href="#"><i class="bx bxl-twitter"></i></a>
+        <a href="#"><i class="bx bxl-facebook"></i></a>
+      </div>
+
+      <div class="links">
+        <a href="#home">Home</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Kontak</a>
+      </div>
+
+      <div class="credit">
+        <p> &copy; 2025 - Made with <span>❤</span></p>
+      </div>
+    </footer>
+
+    <!-- Modal box detail -->
+    <div class="modal" id="item-detail-modal" x-data x-show="$store.product.detail">
+      <div class="modal-container">
+        <a href="#" class="close" @click.prevent="$store.product.closeModal()">
+          <i class="bx bx-x"></i>
+        </a>
+        <div class="modal-content" x-show="$store.product.detail">
+          <img :src="`assets/img/${$store.product.detail?.img}`" :alt="$store.product.detail?.name" />
+          <div class="product-content">
+            <h1 x-text="$store.product.detail?.name"></h1>
+            <p x-text="$store.product.detail?.detail"></p>
+            <p x-text="$store.product.detail?.detail1"></p>
+            <p x-text="$store.product.detail?.detail2"></p>
+            <p x-text="$store.product.detail?.detail3"></p>
+            <p x-text="$store.product.detail?.detail4"></p>
+            <p x-text="$store.product.detail?.detail5"></p>
+            <div class="product-stars">
+              <i class="bx bxs-star"></i>
+              <i class="bx bxs-star"></i>
+              <i class="bx bxs-star"></i>
+              <i class="bx bxs-star"></i>
+              <i class="bx bx-star"></i>
+            </div>
+            <div class="product-price" x-text="rupiah($store.product.detail?.price)"></div>
+            <a :href="`https://wa.me/+6281331061873?text=${encodeURIComponent('Halo Kenya Foam, saya ingin beli produk ' + $store.product.detail?.name + ', dengan harga ' + rupiah($store.product.detail?.price) + '. Apakah masih tersedia?')}`" target="_blank">
+            <i class='bx bxl-whatsapp'></i> Chat Admin </a>
+            </a>                                   
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+  </body>
+</html>
