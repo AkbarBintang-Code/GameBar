@@ -154,7 +154,7 @@ html {
   color: var(--textColor);
   text-decoration: none;
   padding: 0.4rem 1rem;
-  border-radius: 999px;
+  border-radius: 10px;
   font-weight: bold;
   box-shadow: 3px 5px 0 var(--shadowColor);
   transition: all 0.2s ease;
