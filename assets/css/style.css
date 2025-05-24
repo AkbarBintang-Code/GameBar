@@ -703,6 +703,10 @@ html {
   font-size: 0.7rem;
 }
 
+input:focus{
+  border-color: #ffcc35;
+}
+
 .bit-btn-submit {
   background-color: var(--backgroundColor);
   color: var(--textColor);
@@ -798,7 +802,7 @@ footer .links a {
   margin: 0 1rem;
   text-decoration: none;
   letter-spacing: 0.5px; /* Spasi antar huruf sedikit lebih rapat */
-  transition: color 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 footer .links a:hover {
@@ -1224,6 +1228,10 @@ footer .links {
   font-size: 0.7rem;
 }
 
+input:focus{
+  border-color: #ffcc35;
+}
+
 .bit-btn-submit {
   background-color: var(--backgroundColor);
   color: var(--textColor);
@@ -1391,4 +1399,7 @@ footer .links {
   .modal-content {
     flex-wrap: wrap;
   }
+  input:focus{
+  border-color: #ffcc35;
+}
 }
