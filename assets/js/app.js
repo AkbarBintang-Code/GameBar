@@ -59,6 +59,7 @@ document.addEventListener("alpine:init", () => {
     },
 
     closeModal() {
+      this.detail = null; // Clear detail when closing
       document.getElementById("item-detail-modal").style.display = "none";
     },
   });
@@ -94,6 +95,3 @@ function scrollActive() {
 }
 
 window.addEventListener("scroll", scrollActive);
-
-
-

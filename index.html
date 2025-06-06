@@ -3,30 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--=============== FAVICON ===============-->
     <link rel="shortcut icon" href="assets/img/joystick.png" type="image/x-icon" />
-    <!-- Boxicons cdn -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <!-- CSS MANUAL -->
     <link rel="stylesheet" href="assets/css/style.css" />
-    <!-- Alpine js cdn -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <title>Game-Bar.</title>
   </head>
   <body x-data="{ dark: false }" :class="{ 'dark-mode': dark }">
-  <!-- Navbar -->
   <nav class="navbar" x-data="{ menuOpen: false, active: 'home' }">
     <a href="#top" class="navbar-logo">Game-Bar.</a>
 
-    <div class="navbar-nav">
-      <a href="#home" class="nav__link">Home</a>
-      <a href="#about" class="nav__link">About us</a>
-      <a href="#menu" class="nav__link">Info</a>
-      <a href="#products" class="nav__link">Produk</a>
-      <a href="#contact" class="nav__link">Contact Us</a>
+    <div class="navbar-nav" :class="{ 'active': menuOpen }">
+      <a href="#home" class="nav__link" @click="menuOpen = false">Home</a>
+      <a href="#about" class="nav__link" @click="menuOpen = false">About us</a>
+      <a href="#menu" class="nav__link" @click="menuOpen = false">Info</a>
+      <a href="#products" class="nav__link" @click="menuOpen = false">Produk</a>
+      <a href="#contact" class="nav__link" @click="menuOpen = false">Contact Us</a>
     </div>      
 
-    <!-- Toggle Dark Mode -->
     <button @click="dark = !dark" class="dark-toggle">
       <i class="bx" :class="dark ? 'bx-sun' : 'bx-moon'"></i>
     </button>
@@ -37,26 +31,15 @@
   </nav>
 
     
-    <!-- Navbar Last-->
-
-    <!-- Hero Section Start -->
     <section class="hero" id="home">
       <div class="mask-container">
         <main class="content">
           <h1>Bukan Sekadar <span>Konsol.</span> Ini <span>Mesin Waktu.</span></h1>
-          <!-- <p class="paragrap">Game-Bar Surabaya membawa kamu kembali ke era emas gaming. Dari PlayStation jadul sampai game retro 
-            yang legendaris — rasakan nostalgia seru, beli dan jual koleksi terbaikmu, 
-            dan hidupkan kembali masa-masa keemasan di tempat ngumpulnya para gamer sejati.
-          </p> -->
-              
           <a href="#products" class="cta">▸ Press Start to Nostalgia.</a>
         </main>
       </div>
     </section>
-    <!-- Hero Section End -->
-
-    <!-- About Section Start -->
-<section class="about retro-section" id="about">
+    <section class="about retro-section" id="about">
   <h2 class="retro-title1">Tentang <span class="blink">Kami</span></h2>
 
   <div class="row">
@@ -72,10 +55,7 @@
   </div>
 </section>
   
-    <!-- About Section End -->
-
-    <!-- Menu Section Start -->
-<section class="menu retro-section" id="menu">
+    <section class="menu retro-section" id="menu">
   <h2 class="retro-title">Nostalgia akan terasa <span>Menyenangkan!</span></h2>
   <p class="retro-subtitle">
     Game-Bar bukan cuma tempat jual beli <span>konsol</span>, tapi <span>markasnya</span> para <span>gamer yang rindu</span> sensasi <span>loading screen</span>, <span>stik kabel</span>, dan <span>suara disk yang muter</span>. 
@@ -87,15 +67,12 @@
 
   <ul class="keunggulan-list">
     <li>🕹️ Produk Berkelas</li>
-<li>💰 Harga Grosir Kompetitif</li>
-<li>📦 Stok Selalu Tersedia</li>
-<li>⚡ Layanan Cepat dan Ramah</li>
+    <li>💰 Harga Grosir Kompetitif</li>
+    <li>📦 Stok Selalu Tersedia</li>
+    <li>⚡ Layanan Cepat dan Ramah</li>
   </ul>
 </section>
-    <!-- Menu Section End -->
-
-    <!-- Product section Start -->
-<section class="pixel-section" id="products" x-data="products">
+    <section class="pixel-section" id="products" x-data="products">
   <h2 class="pixel-title">Produk <span>Unggulan</span> Kami</h2>
   <p class="pixel-subtitle">
     Karena <span>kenangan itu berharga</span>, dan <span>setiap game punya cerita</span>.
@@ -131,7 +108,7 @@ dan masa-masa sederhana yang penuh tawa. Dari suara <span>loading PlayStation 1<
           </div>
         </div>
         <br>
-        <div class="pixel-price" x-text="rupiah($store.product.detail?.price)"></div>
+        <div class="pixel-price" x-text="rupiah(item.price)"></div>
       </div>
     </template>
   </div>
@@ -166,15 +143,12 @@ dan masa-masa sederhana yang penuh tawa. Dari suara <span>loading PlayStation 1<
           </div>
         </div>
         <br>
-        <div class="pixel-price" x-text="rupiah($store.product.detail?.price)"></div>
+        <div class="pixel-price" x-text="rupiah(item.price)"></div>
       </div>
     </template>
   </div>
 </section>
-    <!-- Product section End -->
-     
-    <!-- Contact Section Start -->
-<section class="bit-contact" id="contact">
+    <section class="bit-contact" id="contact">
   <h2 class="bit-title">Kontak <span>Kami</span></h2>
   <p class="bit-subtitle">
     Punya pertanyaan soal console, mau tanya stok game favorit masa kecil, atau sekadar berbagi kenangan seru waktu main bareng teman dulu?
@@ -210,9 +184,6 @@ dan masa-masa sederhana yang penuh tawa. Dari suara <span>loading PlayStation 1<
   </div>
 </section>
 
-    <!-- Contact Section End -->
-
-    <!-- Footer -->
     <footer>
       <div class="socials">
         <a href="#"><i class="bx bxl-instagram"></i></a>
@@ -229,12 +200,11 @@ dan masa-masa sederhana yang penuh tawa. Dari suara <span>loading PlayStation 1<
       </div>
 
       <div class="credit">
-        <p> &copy; 2025 - Made with <span>❤</span></p>
+        <p> © 2025 - Made with <span>❤</span></p>
       </div>
     </footer>
 
-    <!-- Modal box detail -->
-    <div class="modal" id="item-detail-modal" x-data x-show="$store.product.detail">
+    <div class="modal" id="item-detail-modal" x-data x-show="$store.product.detail" x-transition.opacity>
       <div class="modal-container">
         <a href="#" class="close" @click.prevent="$store.product.closeModal()">
           <i class="bx bx-x"></i>
